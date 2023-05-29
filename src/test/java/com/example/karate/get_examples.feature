@@ -4,7 +4,7 @@ Feature:
     * def varPage = 1
     Given url 'https://reqres.in/api'
 
-  Scenario: test-all-users
+  Scenario: test-all-users-and-data-structure
     Given param page = varPage
     Given path '/users'
     When method Get
@@ -21,7 +21,7 @@ Feature:
       }
     """
 
-  Scenario: test-one-user
+  Scenario: test-one-user-and-name
     * def idUser = 1
     Given path '/users',idUser
     When method Get

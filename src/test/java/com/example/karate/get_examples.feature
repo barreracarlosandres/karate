@@ -1,7 +1,8 @@
 Feature:
 
   Background:
-    * def varPage = 1
+    * def random = Java.type('com.example.karate.Generator')
+    * def varPage = parseInt(random.getRandomNumber())
     Given url 'https://reqres.in/api'
 
   Scenario: get all users and validate the json structure

@@ -11,7 +11,8 @@ Feature:
     When method Get
     Then status 200
     And match response.page == varPage
-#    And match each response.data[*] == {"id": "#number", "email": "#string", "first_name": "#string", "last_name": "#string", "avatar": "#string"}
+    * print response
+#    And match each response.data[*] == {'id': '#number', 'email': '#string', 'first_name': '#string', 'last_name': '#string', 'avatar': '#string'}
     And match each response.data[*] ==
     """
       {

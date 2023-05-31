@@ -1,10 +1,9 @@
 Feature:
 
   Background:
-    * def varPage = 1
     Given url 'https://reqres.in/api'
 
-  Scenario: test-add-user-and-validate
+  Scenario: post to add user and validate response
     * def name = 'morpheus'
     * def job = 'leader'
     Given path '/users'
@@ -16,19 +15,15 @@ Feature:
     """
     When method Post
     Then status 201
+    * print response
     And match response.name == name
     And match response.job == job
     And match response.id == '#string'
     And match response.createdAt contains '2023'
 
-  Scenario Outline: test-add-user-and-validate-with-examples
+  Scenario Outline: post users one by one and validate each one
     Given path '/users'
-    And request
-    """
-    {
-      "name": '<name>',
-      "job": '<job>' }
-    """
+    And request { "name": '<name>', "job": '<job>' }
     When method Post
     Then status 201
     And match response.name == '<name>'

@@ -15,9 +15,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+
 //	Karate config
-	implementation 'com.intuit.karate:karate-junit5:1.4.0.RC3'
-	implementation 'com.intuit.karate:karate-apache:0.9.6'
+	testImplementation 'com.intuit.karate:karate-junit5:1.4.0.RC3'
+	testImplementation 'com.intuit.karate:karate-apache:0.9.6'
+
+	compileOnly 'org.projectlombok:lombok:1.18.26'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

@@ -4,12 +4,13 @@ Feature:
     * def varPage = 1
     Given url 'https://reqres.in/api'
 
-  Scenario: test-all-users-and-data-structure
+  Scenario: get all users and validate the json structure
     Given param page = varPage
     Given path '/users'
     When method Get
     Then status 200
     And match response.page == varPage
+#    And match each response.data[*] == {"id": "#number", "email": "#string", "first_name": "#string", "last_name": "#string", "avatar": "#string"}
     And match each response.data[*] ==
     """
       {
@@ -21,9 +22,17 @@ Feature:
       }
     """
 
-  Scenario: test-one-user-and-name
+  Scenario: get all users and validate the structure with json file
+    Given param page = varPage
+    Given path '/users'
+    When method Get
+    Then status 200
+    And match response.page == varPage
+    And match each response.data[*] == read('templates/user_structure.json')
+
+  Scenario: get with parameter and validate user id and name
     * def idUser = 1
-    Given path '/users',idUser
+    Given path '/users', idUser
     When method Get
     Then status 200
     And match response.data.id == idUser

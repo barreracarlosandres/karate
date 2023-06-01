@@ -1,7 +1,7 @@
 Feature:
 
   Background:
-    * def random = Java.type('com.example.karate.Generator')
+    * def random = Java.type('com.example.karate.utils.Generator')
     * def varPage = parseInt(random.getRandomNumber())
     Given url 'https://reqres.in/api'
 

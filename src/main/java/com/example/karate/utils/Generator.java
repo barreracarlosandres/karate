@@ -1,4 +1,4 @@
-package com.example.karate;
+package com.example.karate.utils;
 
 import org.apache.commons.lang3.RandomUtils;
 

@@ -33,6 +33,5 @@ Feature:
 
     Examples:
       | name   | job       | year |
-      | carlos | developer | 2024 |
+      | carlos | developer | 2023 |
       | juan   | engineer  | 2023 |
-
